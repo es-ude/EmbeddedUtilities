@@ -1,15 +1,6 @@
-load(
-    "@UnityPlugin//Unity_rules:unity.bzl",
-    "unity_test",
-)
-
-cexception_copts = [
-    "-DCEXCEPTION_T=uint8_t",
-    "-DCEXCEPTION_NONE=0x00",
-]
+load("@EmbeddedSystemsBuildScripts//:unity.bzl", "unity_test")
 
 unity_test(
-    copts = cexception_copts,
     file_name = "Mutex_Test.c",
     deps = [
         "//:Mutex",
@@ -17,7 +8,6 @@ unity_test(
 )
 
 unity_test(
-    copts = cexception_copts,
     file_name = "PeriodicScheduler_Test.c",
     deps = [
         "//:PeriodicScheduler",
@@ -25,9 +15,15 @@ unity_test(
 )
 
 unity_test(
-    copts = cexception_copts,
     file_name = "MultiReaderBuffer_Test.c",
     deps = [
         "//:MultiReaderBuffer",
+    ]
+)
+
+unity_test(
+    file_name = "BitManipulation_Test.c",
+    deps = [
+        "//:BitManipulation",
     ]
 )

@@ -12,11 +12,15 @@ We use the prefix new because unity isn't a bazel project, so we need to provide
 More info under https://docs.bazel.build/versions/master/be/workspace.html#new_http_archive
 """
 
-git_repository(
+http_archive(
     name = "EmbeddedSystemsBuildScripts",
-    branch = "develop",
-    remote = "ssh://git@bitbucket.es.uni-due.de:7999/fks/bazel-avr-toolchain-linux.git",
+    type = "zip",
+    urls = ["http://artifactory.es.uni-due.de:8081/artifactory/libs-release-local/im/EmbeddedSystemsBuildScripts.zip"],
 )
+
+load("@EmbeddedSystemsBuildScripts//:avr.bzl", "avr_toolchain")
+
+avr_toolchain()
 
 http_archive(
     name = "Unity",
@@ -33,43 +37,15 @@ http_archive(
 )
 
 http_archive(
-    name = "UnityPlugin",
-    strip_prefix = "BazelUnityPlugin-develop",
-    urls = ["https://github.com/glencoe/BazelUnityPlugin/archive/develop.tar.gz"],
-)
-
-http_archive(
     name = "CMock",
     build_file = "@EmbeddedSystemsBuildScripts//:BUILD.CMock",
     strip_prefix = "CMock-master",
     urls = ["https://github.com/ThrowTheSwitch/CMock/archive/master.tar.gz"],
 )
 
-
-
-load("@EmbeddedSystemsBuildScripts//:avr.bzl", "create_avr_toolchain")
-
-create_avr_toolchain(
-    name = "AvrToolchain"
-)
-
-
 http_archive(
     name = "LUFA",
-    build_file = "@EmbeddedSystemsBuildScripts//:BUILD.LUFA",
+    build_file = "@AvrToolchain//:BUILD.LUFA",
     strip_prefix = "lufa-LUFA-170418",
     urls = ["http://fourwalledcubicle.com/files/LUFA/LUFA-170418.zip"],
-)
-
-git_repository(
-    name = "EmbeddedUtilities",
-    commit = "5bfd18c56dc90041662bb532e6c06371a9a4f2d2",
-    remote = "ssh://git@bitbucket.es.uni-due.de:7999/im/embedded-utilities.git",
-)
-
-git_repository(
-    name = "PeripheralInterface",
-    remote = "ssh://git@bitbucket.es.uni-due.de:7999/im/peripheralinterface.git",
-    commit = "1e0e60cacdbb9a8dd6871d826951c76cd305f030",
-    shallow_since = "1555567164 +0200"
 )

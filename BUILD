@@ -1,19 +1,17 @@
-load("@AvrToolchain//:helpers.bzl", "default_embedded_lib")
-
-default_embedded_lib(
+cc_library(
     name = "Util",
     hdrs = glob(["Util/*.h"]),
     srcs = glob(["src/**/*.c"]),
     visibility = ["//visibility:public"],
 )
 
-default_embedded_lib(
+cc_library(
     name = "BitManipulation",
     hdrs = ["Util/BitManipulation.h"],
     visibility = ["//visibility:public"],
 )
 
-default_embedded_lib(
+cc_library(
     name = "Mutex",
     hdrs = [
         "Util/Atomic.h",
@@ -23,10 +21,11 @@ default_embedded_lib(
     srcs = [
         "src/Mutex.c"
     ],
-    visibility = ["//visibility:public"]
+    visibility = ["//visibility:public"],
+    deps = ["@CException"]
 )
 
-default_embedded_lib(
+cc_library(
     name = "PeriodicScheduler",
     hdrs = [
         "Util/PeriodicScheduler.h",
@@ -41,7 +40,7 @@ default_embedded_lib(
     ],
 )
 
-default_embedded_lib(
+cc_library(
     name = "Debug",
     hdrs = [
         "Util/Debug.h",
@@ -49,7 +48,7 @@ default_embedded_lib(
     visibility = ["//visibility:public"]
 )
 
-default_embedded_lib(
+cc_library(
     name = "Callback",
     hdrs = [
         "Util/Callback.h",
@@ -57,7 +56,7 @@ default_embedded_lib(
     visibility = ["//visibility:public"]
 )
 
-default_embedded_lib(
+cc_library(
     name = "MultiReaderBuffer",
     hdrs = [
         "Util/MultiReaderBuffer.h",
