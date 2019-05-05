@@ -34,7 +34,7 @@ BitManipulation_setByteOnArray(volatile uint8_t *field, uint8_t bitmask, uint8_t
   field[byte_index] &= (~lower_bitmask |lower_value);
 }
 
-static uint8_t
+static inline uint8_t
 BitManipulation_getByteOnArray(volatile const uint8_t *field, uint8_t bitmask, uint8_t offset) {
   uint8_t byte_index = (uint8_t) (offset / 8);
   uint8_t local_offset = (uint8_t) (offset % 8);
@@ -47,13 +47,13 @@ BitManipulation_getByteOnArray(volatile const uint8_t *field, uint8_t bitmask, u
   return value;
 }
 
-static void BitManipulation_setBitOnArray(volatile uint8_t *field, uint8_t offset){
+static inline void BitManipulation_setBitOnArray(volatile uint8_t *field, uint8_t offset){
   uint8_t byte_index = (uint8_t) (offset / 8);
   uint8_t local_offset = (uint8_t) (offset % 8);
   field[byte_index] |= (1 << local_offset);
 }
 
-static void BitManipulation_clearBitOnArray(volatile uint8_t *field, uint8_t offset) {
+static inline void BitManipulation_clearBitOnArray(volatile uint8_t *field, uint8_t offset) {
   uint8_t byte_index = (uint8_t) (offset / 8);
   uint8_t local_offset = (uint8_t) (offset % 8);
   field[byte_index] &= ~(1 << local_offset);
@@ -65,7 +65,7 @@ static bool BitManipulation_bitIsSetOnArray(volatile const uint8_t *field, uint8
   return ((field[byte_index] >> local_offset) & 1) == 1;
 }
 
-static void
+static inline void
 BitManipulation_copyBytes(volatile const uint8_t *source, volatile uint8_t *destination, uint16_t length)
 {
   while(length > 0)
@@ -77,7 +77,7 @@ BitManipulation_copyBytes(volatile const uint8_t *source, volatile uint8_t *dest
     }
 }
 
-static void
+static inline void
 BitManipulation_fillArray(uint8_t *array, uint8_t value, uint8_t length)
 {
   while(length > 0)
@@ -88,7 +88,7 @@ BitManipulation_fillArray(uint8_t *array, uint8_t value, uint8_t length)
     }
 }
 
-static void
+static inline void
 BitManipulation_fillByteArrayWith64BitBigEndian(volatile uint8_t *array, uint64_t value)
 {
   uint8_t *value_ptr = (uint8_t *) &value;
@@ -108,7 +108,7 @@ BitManipulation_fillByteArrayWith64BitBigEndian(volatile uint8_t *array, uint64_
     }
 }
 
-static void
+static inline void
 BitManipulation_fillByteArrayWith16BitBigEndian(volatile uint8_t *array, uint16_t value)
 {
   uint8_t *value_ptr = (uint8_t *) &value;
@@ -128,7 +128,7 @@ BitManipulation_fillByteArrayWith16BitBigEndian(volatile uint8_t *array, uint16_
     }
 }
 
-static uint16_t
+static inline uint16_t
 BitManipulation_get16BitFromBigEndianByteArray(volatile const uint8_t *array) {
   uint16_t value;
   uint8_t *value_ptr = (uint8_t *) &value;
@@ -145,21 +145,21 @@ BitManipulation_get16BitFromBigEndianByteArray(volatile const uint8_t *array) {
   return value;
 }
 
-static void BitManipulation_clearBit(volatile uint8_t *byte_ptr, uint8_t offset) {
+static inline void BitManipulation_clearBit(volatile uint8_t *byte_ptr, uint8_t offset) {
   *(byte_ptr) &= ~(1 << offset);
 }
 
-static void BitManipulation_setBit(volatile uint8_t *byte_ptr, uint8_t offset) {
+static inline void BitManipulation_setBit(volatile uint8_t *byte_ptr, uint8_t offset) {
   *(byte_ptr) |= (1 << offset);
 }
 
-static void BitManipulation_setByte(volatile uint8_t *byte_ptr, uint8_t bitmask, uint8_t value) {
+static inline void BitManipulation_setByte(volatile uint8_t *byte_ptr, uint8_t bitmask, uint8_t value) {
   *byte_ptr = (~bitmask & *byte_ptr) | (bitmask & value);
 }
 
 
 
-static uint8_t
+static inline uint8_t
 BitManipulation_getFirstSetBitsOffsetFromByte(uint8_t byte)
 {
   uint8_t offset = 8;
@@ -174,7 +174,7 @@ BitManipulation_getFirstSetBitsOffsetFromByte(uint8_t byte)
   return offset;
 }
 
-static uint8_t
+static inline uint8_t
 BitManipulation_getLengthOfContinuousSetBitsFromByte(uint8_t byte)
 {
   bool set_bit = false;
