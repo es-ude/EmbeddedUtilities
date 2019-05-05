@@ -59,7 +59,7 @@ static inline void BitManipulation_clearBitOnArray(volatile uint8_t *field, uint
   field[byte_index] &= ~(1 << local_offset);
 }
 
-static bool BitManipulation_bitIsSetOnArray(volatile const uint8_t *field, uint8_t offset) {
+static inline bool BitManipulation_bitIsSetOnArray(volatile const uint8_t *field, uint8_t offset) {
   uint8_t byte_index = (uint8_t) (offset / 8);
   uint8_t local_offset = (uint8_t) (offset % 8);
   return ((field[byte_index] >> local_offset) & 1) == 1;
