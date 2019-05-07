@@ -1,6 +1,6 @@
 #include "Util/Debug.h"
 #include "Util/PeriodicScheduler.h"
-#include "PeriodicSchedulerIntern.h"
+#include "src/PeriodicSchedulerIntern.h"
 
 PeriodicScheduler *
 createPeriodicScheduler(void   *memory,

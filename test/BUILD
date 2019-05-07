@@ -25,5 +25,6 @@ unity_test(
     file_name = "BitManipulation_Test.c",
     deps = [
         "//:BitManipulation",
+        "@CException",
     ]
 )

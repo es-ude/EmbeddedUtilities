@@ -1,8 +1,9 @@
 cc_library(
     name = "Util",
     hdrs = glob(["Util/*.h"]),
-    srcs = glob(["src/**/*.c"]),
+    srcs = glob(["src/**/*.c", "src/**/*.h"]),
     visibility = ["//visibility:public"],
+    deps = ["@CException"],
 )
 
 cc_library(
@@ -37,6 +38,7 @@ cc_library(
     visibility = ["//visibility:public"],
     deps = [
         ":Debug",
+        "@CException",
     ],
 )
 
@@ -65,6 +67,7 @@ cc_library(
         "src/MultiReaderBuffer.c",
     ],
     visibility = ["//visibility:public"],
+    deps = ["@CException"],
 )
 
 """
