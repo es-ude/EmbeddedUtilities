@@ -15,7 +15,8 @@ More info under https://docs.bazel.build/versions/master/be/workspace.html#new_h
 http_archive(
     name = "EmbeddedSystemsBuildScripts",
     type = "zip",
-    urls = ["http://artifactory.es.uni-due.de:8081/artifactory/libs-release-local/im/EmbeddedSystemsBuildScripts.zip"],
+    urls = ["http://artifactory.es.uni-due.de:8081/artifactory/libs-release-local/embeddedsystemsbuildscripts/0.2/EmbeddedSystemsBuildScripts.zip"]
+    # urls = ["http://artifactory.es.uni-due.de:8081/artifactory/libs-release-local/im/EmbeddedSystemsBuildScripts.zip"],
 )
 
 load("@EmbeddedSystemsBuildScripts//:avr.bzl", "avr_toolchain")

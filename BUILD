@@ -1,7 +1,16 @@
+load("@bazel_tools//tools/build_defs/pkg:pkg.bzl", "pkg_tar", "pkg_deb")
+
+filegroup(
+    name = "UtilHeaders",
+    srcs = glob(["Util/*.h"]),
+)
+    
+
 cc_library(
     name = "Util",
-    hdrs = glob(["Util/*.h"]),
+    hdrs = [":UtilHeaders", "src/PeriodicSchedulerIntern.h"],
     srcs = glob(["src/**/*.c"]),
+    deps = ["@CException"],
     visibility = ["//visibility:public"],
 )
 
@@ -37,6 +46,7 @@ cc_library(
     visibility = ["//visibility:public"],
     deps = [
         ":Debug",
+        "@CException"
     ],
 )
 
@@ -65,6 +75,7 @@ cc_library(
         "src/MultiReaderBuffer.c",
     ],
     visibility = ["//visibility:public"],
+    deps = ["@CException"]
 )
 
 """
@@ -75,4 +86,38 @@ other projects.
 exports_files(
     srcs = glob(["Util/**/*.h"]),
     visibility = ["//visibility:public"],
+)
+
+LibsList = [":MultiReaderBuffer", ":Callback", ":Debug", ":PeriodicScheduler", ":Util", ":BitManipulation", ":Mutex"]
+
+pkg_tar(
+    name = "pkgHeaders",
+    srcs = [":UtilHeaders"],
+    strip_prefix = ".",
+    extension = "tar.gz",
+    mode = "0644"
+)
+
+[pkg_tar(
+    name = "pkg%s" % lib[1:],
+    srcs = [lib],
+    extension = "tar.gz",
+    mode = "0644"
+) for lib in LibsList]
+
+pkg_tar(
+    name = "pkgBuild",
+    srcs = ["BUILD.tpl"],
+    extension = "tar.gz",
+    mode = "0644",
+    remap_paths = {
+        "BUILD.tpl": "BUILD",
+    },
+)
+
+pkg_tar(
+    name = "pkg",
+    deps = ["pkgHeaders", "pkgBuild"] + ["pkg%s" % lib[1:] for lib in LibsList],
+    extension = "tar.gz",
+    mode = "0644"
 )

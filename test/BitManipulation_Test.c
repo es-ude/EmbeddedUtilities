@@ -1,7 +1,10 @@
 #include <memory.h>
 #include "unity.h"
-#include "src/Util/BitManipulation.h"
-#include "CommunicationModule/Mac802154.h"
+#include "Util/BitManipulation.h"
+// #include "CommunicationModule/Mac802154.h"
+
+#define ADDRESSING_MODE_SHORT_ADDRESS 0b10 // source: "CommunicationModule/Mac802154.h"
+
 
 void debug(const uint8_t *msg){}
 

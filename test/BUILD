@@ -11,6 +11,7 @@ unity_test(
     file_name = "PeriodicScheduler_Test.c",
     deps = [
         "//:PeriodicScheduler",
+        "@CException",
     ]
 )
 
@@ -25,5 +26,6 @@ unity_test(
     file_name = "BitManipulation_Test.c",
     deps = [
         "//:BitManipulation",
+        "@CException"
     ]
 )

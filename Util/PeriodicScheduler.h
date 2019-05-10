@@ -4,7 +4,7 @@
 #include <stddef.h>
 #include <stdint.h>
 #include <stdbool.h>
-#include <CException.h>
+#include "CException.h"
 
 /**
  * Overall idea here is simple.
