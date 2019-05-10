@@ -8,5 +8,5 @@ function build_and_zip {
     fi
 }
 
-build_and_zip $1 native
-build_and_zip $1 avr
+build_and_zip $1 $2
+# build_and_zip $1 avr
