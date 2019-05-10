@@ -52,7 +52,6 @@ pipeline:
       - artifactory_password
     when:
       event: [tag]
-      branch: [release]
     privileged: true
     volumes:
       - /build/:/build/
