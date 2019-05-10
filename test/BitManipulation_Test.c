@@ -1,14 +1,11 @@
 #include "unity.h"
 #include "Util/BitManipulation.h"
-<<<<<<< HEAD
 // #include "CommunicationModule/Mac802154.h"
 
 #define ADDRESSING_MODE_SHORT_ADDRESS 0b10 // source: "CommunicationModule/Mac802154.h"
 
 
-=======
 #include <memory.h>
->>>>>>> 8d02f86d1921fcccd24f8a688dffcc5e3e80169d
 void debug(const uint8_t *msg){}
 
 void checkByteValue(uint8_t field, uint8_t field_copy, uint8_t offset, uint8_t bitmask, uint8_t value) {
