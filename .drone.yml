@@ -17,7 +17,7 @@ pipeline:
       - docker_password
     commands:
       - ln -s /user.bazelrc user.bazelrc
-      - bazel test test:all --copt="-DDEBUG=0"
+      - bazel test test:all --copt="-DDEBUG=0" --config=native
     when:
       event: [push, pull_request, tag]
       #branch: [drone]
