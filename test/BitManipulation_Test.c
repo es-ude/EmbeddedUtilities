@@ -1,11 +1,14 @@
-#include <memory.h>
 #include "unity.h"
 #include "Util/BitManipulation.h"
+<<<<<<< HEAD
 // #include "CommunicationModule/Mac802154.h"
 
 #define ADDRESSING_MODE_SHORT_ADDRESS 0b10 // source: "CommunicationModule/Mac802154.h"
 
 
+=======
+#include <memory.h>
+>>>>>>> 8d02f86d1921fcccd24f8a688dffcc5e3e80169d
 void debug(const uint8_t *msg){}
 
 void checkByteValue(uint8_t field, uint8_t field_copy, uint8_t offset, uint8_t bitmask, uint8_t value) {
@@ -67,13 +70,13 @@ void test_getByteSpanningTwoArrayIndices(void) {
   TEST_ASSERT_EQUAL_HEX8(expected, BitManipulation_getByteOnArray(field, bitmask, offset));
 }
 
-void test_getByte3(void) {
-  uint8_t field[2] = {0x00, 2 << 6};
-  uint8_t bitmask = 0b11;
-  uint8_t offset = 14;
-  uint8_t expected = ADDRESSING_MODE_SHORT_ADDRESS;
-  TEST_ASSERT_EQUAL_HEX8(expected, BitManipulation_getByteOnArray(field, bitmask, offset));
-}
+//void test_getByte3(void) {
+//  uint8_t field[2] = {0x00, 2 << 6};
+//  uint8_t bitmask = 0b11;
+//  uint8_t offset = 14;
+//  uint8_t expected = ADDRESSING_MODE_SHORT_ADDRESS;
+//  TEST_ASSERT_EQUAL_HEX8(expected, BitManipulation_getByteOnArray(field, bitmask, offset));
+//}
 
 void test_fillArrayWith64BitBigEndian(void) {
   uint64_t value = 0x1234;

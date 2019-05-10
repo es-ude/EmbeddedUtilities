@@ -8,10 +8,10 @@ filegroup(
 
 cc_library(
     name = "Util",
-    hdrs = [":UtilHeaders", "src/PeriodicSchedulerIntern.h"],
-    srcs = glob(["src/**/*.c"]),
-    deps = ["@CException"],
+    hdrs = [":UtilHeaders"],
+    srcs = glob(["src/**/*.c", "src/**/*.h"]),
     visibility = ["//visibility:public"],
+    deps = ["@CException"],
 )
 
 cc_library(

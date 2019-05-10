@@ -32,7 +32,17 @@ test_initMutex(void)
 void
 test_lockSuccess(void)
 {
-  lockMutex(&mutex, (void*)1);
+  CEXCEPTION_T e = CEXCEPTION_NONE;
+  Try
+      {
+        lockMutex(&mutex, (void *) 1);
+      }
+      Catch(e)
+  {
+    char text[32];
+    sprintf(text, "number: %i", e);
+    TEST_FAIL_MESSAGE(text);
+  }
 }
 
 void
@@ -63,5 +73,26 @@ test_makeSureLockingIsPerformedInsideOfAtomicBlock(void)
   Catch(exception)
   {
     TEST_ASSERT_EQUAL_UINT8(MUTEX_WAS_NOT_LOCKED, exception);
+  }
+}
+
+void
+test_lockUnlockLock(void){
+  CEXCEPTION_T exception = CEXCEPTION_NONE;
+  int number_of_function_calls = 0;
+  Try
+      {
+        lockMutex(&mutex, (void *) 2);
+        number_of_function_calls++;
+        unlockMutex(&mutex, (void*) 2);
+        number_of_function_calls++;
+        lockMutex(&mutex, (void *)2);
+        number_of_function_calls++;
+      }
+  Catch(exception)
+  {
+    char text[32];
+    sprintf(text, "number: %i", number_of_function_calls);
+    TEST_FAIL_MESSAGE(text);
   }
 }
