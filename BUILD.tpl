@@ -63,3 +63,8 @@ cc_library(
         "libMultiReaderBuffer.a",
     ],
 )
+
+exports_files(
+    srcs = glob(["Util/**/*.h"]),
+    visibility = ["//visibility:public"],
+)
