@@ -12,6 +12,7 @@ cc_library(
     srcs = glob(["src/**/*.c", "src/**/*.h"]),
     visibility = ["//visibility:public"],
     deps = ["@CException"],
+    linkstatic = True
 )
 
 cc_library(
@@ -31,7 +32,9 @@ cc_library(
         "src/Mutex.c"
     ],
     visibility = ["//visibility:public"],
-    deps = ["@CException"]
+    deps = ["@CException"],
+    linkstatic = True
+    
 )
 
 cc_library(
@@ -48,6 +51,7 @@ cc_library(
         ":Debug",
         "@CException"
     ],
+    linkstatic = True
 )
 
 cc_library(
@@ -75,7 +79,8 @@ cc_library(
         "src/MultiReaderBuffer.c",
     ],
     visibility = ["//visibility:public"],
-    deps = ["@CException"]
+    deps = ["@CException"],
+    linkstatic = True
 )
 
 """
