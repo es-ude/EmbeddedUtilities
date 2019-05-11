@@ -83,7 +83,6 @@ cc_library(
     ],
     visibility = ["//visibility:public"],
     deps = [
-        ":Debug",
         "@CException",
     ],
 )
@@ -117,7 +116,6 @@ cc_library(
         "libMultiReaderBuffer.a",
     ],
     deps = [
-        ":Debug",
         "@CException",
     ],
 )
