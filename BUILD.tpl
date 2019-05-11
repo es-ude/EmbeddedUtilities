@@ -48,12 +48,14 @@ cc_library(
 cc_library(
     name = "UtilHdrOnly",
     hdrs = [":UtilHdrs"],
+    linkstatic = True,
     visibility = ["//visibility:public"],
 )
 
 cc_library(
     name = "BitManipulation",
     hdrs = [":BitManipulationHdrs"],
+    linkstatic = True,
     visibility = ["//visibility:public"],
 )
 
@@ -72,6 +74,7 @@ cc_library(
     hdrs = [
         ":MutexHdrs",
     ],
+    linkstatic = True,
     visibility = ["//visibility:public"],
 )
 
@@ -92,6 +95,7 @@ cc_library(
     hdrs = [
         ":PeriodicSchedulerHdrs",
     ],
+    linkstatic = True,
 )
 
 cc_library(
@@ -99,6 +103,7 @@ cc_library(
     hdrs = [
         "Util/Debug.h",
     ],
+    linkstatic = True,
     visibility = ["//visibility:public"],
 )
 
@@ -107,6 +112,7 @@ cc_library(
     hdrs = [
         "Util/Callback.h",
     ],
+    linkstatic = True,
     visibility = ["//visibility:public"],
 )
 
