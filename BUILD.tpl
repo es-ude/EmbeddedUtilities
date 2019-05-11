@@ -96,6 +96,7 @@ cc_library(
         ":PeriodicSchedulerHdrs",
     ],
     linkstatic = True,
+    visibility = ["//visibility:public"],
 )
 
 cc_library(
@@ -121,6 +122,7 @@ cc_library(
     srcs = [
         "libMultiReaderBuffer.a",
     ],
+    visibility = ["//visibility:public"],
     deps = [
         "@CException",
     ],
