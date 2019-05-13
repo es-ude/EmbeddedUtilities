@@ -76,10 +76,10 @@ cc_library(
     hdrs = [
         ":MutexHdrs",
     ],
-    srcs = [
-        "src/PeriodicScheduler.c",
-        "src/PeriodicSchedulerIntern.h",
-    ],
+#    srcs = [
+#        "src/PeriodicScheduler.c",
+#        "src/PeriodicSchedulerIntern.h",
+#    ],
     linkstatic = True,
     visibility = ["//visibility:public"],
 )
