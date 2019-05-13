@@ -42,7 +42,6 @@ cc_library(
     name = "Util",
     hdrs = [":UtilHeaders"],
     srcs = glob(["src/**/*.c", "src/**/*.h"]),
-    srcs = ["libUtil.a"],
     hdrs = [":UtilHdrs"],
     visibility = ["//visibility:public"],
 )
@@ -63,7 +62,6 @@ cc_library(
 
 cc_library(
     name = "Mutex",
-    srcs = ["libMutex.a"],
     hdrs = [
         ":MutexHdrs",
     ],
@@ -89,7 +87,6 @@ cc_library(
 
 cc_library(
     name = "PeriodicSchedulerHdrsOnly",
-#    srcs = ["libPeriodicScheduler.a"],
     hdrs = [
         ":PeriodicSchedulerHdrs",
     ],
