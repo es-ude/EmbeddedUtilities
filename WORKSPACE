@@ -6,12 +6,6 @@ workspace(
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 
-"""
-Fetch unity and use the file BUILD.unity (residing in this folder) for the build.
-We use the prefix new because unity isn't a bazel project, so we need to provide a BUILD file.
-More info under https://docs.bazel.build/versions/master/be/workspace.html#new_http_archive
-"""
-
 http_archive(
     name = "EmbeddedSystemsBuildScripts",
     type = "tar.gz",

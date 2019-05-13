@@ -1,48 +1,101 @@
 filegroup(
-    name = "UtilHeaders",
-    srcs = glob(["Util/*.h"]),
+    name = "MutexHdrs",
+    srcs = [
+        "Util/Atomic.h",
+        "Util/Callback.h",
+        "Util/Mutex.h",
+    ],
 )
-    
+
+filegroup(
+    name = "BitManipulationHdrs",
+    srcs = [
+        "Util/BitManipulation.h",
+    ],
+)
+
+filegroup(
+    name = "PeriodicSchedulerHdrs",
+    srcs = [
+        "Util/PeriodicScheduler.h",
+    ],
+)
+
+filegroup(
+    name = "MultiReaderBufferHdrs",
+    srcs = [
+        "Util/MultiReaderBuffer.h",
+    ],
+)
+
+filegroup(
+    name = "UtilHdrs",
+    srcs = [
+        ":BitManipulationHdrs",
+        ":MultiReaderBufferHdrs",
+        ":MutexHdrs",
+        ":PeriodicSchedulerHdrs",
+    ],
+)
+
 cc_library(
     name = "Util",
     hdrs = [":UtilHeaders"],
     srcs = glob(["src/**/*.c", "src/**/*.h"]),
+    srcs = ["libUtil.a"],
+    hdrs = [":UtilHdrs"],
+    visibility = ["//visibility:public"],
+)
+
+cc_library(
+    name = "UtilHdrOnly",
+    hdrs = [":UtilHdrs"],
+    linkstatic = True,
     visibility = ["//visibility:public"],
 )
 
 cc_library(
     name = "BitManipulation",
-    hdrs = ["Util/BitManipulation.h"],
+    hdrs = [":BitManipulationHdrs"],
+    linkstatic = True,
     visibility = ["//visibility:public"],
 )
 
 cc_library(
     name = "Mutex",
+    srcs = ["libMutex.a"],
     hdrs = [
-        "Util/Atomic.h",
-        "Util/Callback.h",
-        "Util/Mutex.h",
+        ":MutexHdrs",
     ],
     srcs = [
         "src/Mutex.c"
         ],
     visibility = ["//visibility:public"],
-    deps = ["@CException"]
+    deps = ["@CException"],
 )
 
 cc_library(
-    name = "PeriodicScheduler",
+    name = "MutexHdrsOnly",
     hdrs = [
-        "Util/PeriodicScheduler.h",
+        ":MutexHdrs",
     ],
     srcs = [
         "src/PeriodicScheduler.c",
         "src/PeriodicSchedulerIntern.h",
     ],    visibility = ["//visibility:public"],
-    deps = [
-        ":Debug",
-        "@CException"
+    linkstatic = True,
+    visibility = ["//visibility:public"],
+)
+
+cc_library(
+    name = "PeriodicSchedulerHdrsOnly",
+#    srcs = ["libPeriodicScheduler.a"],
+    hdrs = [
+        ":PeriodicSchedulerHdrs",
     ],
+    linkstatic = True,
+    visibility = ["//visibility:public"],
+#    deps = ["@CException"],
 )
 
 cc_library(
@@ -50,7 +103,8 @@ cc_library(
     hdrs = [
         "Util/Debug.h",
     ],
-    visibility = ["//visibility:public"]
+    linkstatic = True,
+    visibility = ["//visibility:public"],
 )
 
 cc_library(
@@ -58,13 +112,18 @@ cc_library(
     hdrs = [
         "Util/Callback.h",
     ],
-    visibility = ["//visibility:public"]
+    linkstatic = True,
+    visibility = ["//visibility:public"],
 )
 
 cc_library(
     name = "MultiReaderBuffer",
     srcs = [
         "src/MultiReaderBuffer.c",
+    ],
+    visibility = ["//visibility:public"],
+    deps = [
+        "@CException",
     ],
 )
 
