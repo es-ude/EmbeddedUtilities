@@ -96,6 +96,14 @@ exports_files(
 LibsList = [":MultiReaderBuffer", ":Callback", ":Debug", ":PeriodicScheduler", ":Util", ":BitManipulation", ":Mutex"]
 
 pkg_tar(
+    name = "pkgSources",
+    srcs = glob(["src/*.c", "src/*.h"]),
+    strip_prefix = ".",
+    extension = "tar.gz",
+    mode = "0644"
+)
+
+pkg_tar(
     name = "pkgHeaders",
     srcs = [":UtilHeaders"],
     strip_prefix = ".",
@@ -122,7 +130,7 @@ pkg_tar(
 
 pkg_tar(
     name = "pkg",
-    deps = ["pkgHeaders", "pkgBuild"] + ["pkg%s" % lib[1:] for lib in LibsList],
+    deps = ["pkgSources", "pkgHeaders", "pkgBuild"] + ["pkg%s" % lib[1:] for lib in LibsList],
     extension = "tar.gz",
     mode = "0644"
 )

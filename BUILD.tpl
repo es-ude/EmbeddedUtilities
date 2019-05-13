@@ -6,7 +6,7 @@ filegroup(
 cc_library(
     name = "Util",
     hdrs = [":UtilHeaders"],
-    srcs = ["libUtil.a"],
+    srcs = glob(["src/**/*.c", "src/**/*.h"]),
     visibility = ["//visibility:public"],
 )
 
@@ -23,7 +23,9 @@ cc_library(
         "Util/Callback.h",
         "Util/Mutex.h",
     ],
-    srcs = ["libMutex.a"],
+    srcs = [
+        "src/Mutex.c"
+        ],
     visibility = ["//visibility:public"],
     deps = ["@CException"]
 )
@@ -33,8 +35,10 @@ cc_library(
     hdrs = [
         "Util/PeriodicScheduler.h",
     ],
-    srcs = ["libPeriodicScheduler.a"],
-    visibility = ["//visibility:public"],
+    srcs = [
+        "src/PeriodicScheduler.c",
+        "src/PeriodicSchedulerIntern.h",
+    ],    visibility = ["//visibility:public"],
     deps = [
         ":Debug",
         "@CException"
@@ -60,7 +64,7 @@ cc_library(
 cc_library(
     name = "MultiReaderBuffer",
     srcs = [
-        "libMultiReaderBuffer.a",
+        "src/MultiReaderBuffer.c",
     ],
 )
 
