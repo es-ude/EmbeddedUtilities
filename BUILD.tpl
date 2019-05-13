@@ -40,7 +40,6 @@ filegroup(
 
 cc_library(
     name = "Util",
-    hdrs = [":UtilHeaders"],
     srcs = glob(["src/**/*.c", "src/**/*.h"]),
     hdrs = [":UtilHdrs"],
     visibility = ["//visibility:public"],
@@ -80,7 +79,7 @@ cc_library(
     srcs = [
         "src/PeriodicScheduler.c",
         "src/PeriodicSchedulerIntern.h",
-    ],    visibility = ["//visibility:public"],
+    ],
     linkstatic = True,
     visibility = ["//visibility:public"],
 )
