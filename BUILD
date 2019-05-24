@@ -139,36 +139,22 @@ LibsList = [
 ]
 
 pkg_tar(
-    name = "pkgHeaders",
-    srcs = [":UtilHeaders"],
+    name = "pkg",
+    srcs = [
+        "src/MultiReaderBuffer.c",
+        "src/Mutex.c",
+        "src/PeriodicScheduler.c",
+        "src/PeriodicSchedulerIntern.h",
+        "Util/Atomic.h",
+        "Util/BitManipulation.h",
+        "Util/Callback.h",
+        "Util/Debug.h",
+        "Util/MultiReaderBuffer.h",
+        "Util/Mutex.h",
+        "Util/PeriodicScheduler.h",
+        "BUILD",
+    ],
     extension = "tar.gz",
     mode = "0644",
     strip_prefix = ".",
-)
-
-[pkg_tar(
-    name = "pkg%s" % lib[1:],
-    srcs = [lib],
-    extension = "tar.gz",
-    mode = "0644",
-) for lib in LibsList]
-
-pkg_tar(
-    name = "pkgBuild",
-    srcs = ["BUILD.tpl"],
-    extension = "tar.gz",
-    mode = "0644",
-    remap_paths = {
-        "BUILD.tpl": "BUILD",
-    },
-)
-
-pkg_tar(
-    name = "pkg",
-    extension = "tar.gz",
-    mode = "0644",
-    deps = [
-        "pkgHeaders",
-        "pkgBuild",
-    ] + ["pkg%s" % lib[1:] for lib in LibsList],
 )
