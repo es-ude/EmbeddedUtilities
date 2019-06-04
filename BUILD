@@ -1,5 +1,4 @@
 load("@bazel_tools//tools/build_defs/pkg:pkg.bzl", "pkg_deb", "pkg_tar")
-load("@AvrToolchain//:helpers.bzl", "mcu_avr_gcc_flag")
 
 filegroup(
     name = "UtilHeaders",
@@ -12,7 +11,6 @@ cc_library(
         "src/**/*.c",
         "src/**/*.h",
     ]),
-    copts = mcu_avr_gcc_flag(),
     hdrs = [":UtilHeaders"],
     linkstatic = True,
     visibility = ["//visibility:public"],
@@ -37,7 +35,6 @@ cc_library(
     srcs = [
         "src/Mutex.c",
     ],
-    copts = mcu_avr_gcc_flag(),
     hdrs = [
         "Util/Atomic.h",
         "Util/Callback.h",
@@ -65,7 +62,6 @@ cc_library(
         "src/PeriodicScheduler.c",
         "src/PeriodicSchedulerIntern.h",
     ],
-    copts = mcu_avr_gcc_flag(),
     hdrs = [
         "Util/PeriodicScheduler.h",
     ],
@@ -82,7 +78,6 @@ cc_library(
     hdrs = [
         "Util/PeriodicScheduler.h",
     ],
-    copts = mcu_avr_gcc_flag(),
     linkstatic = True,
     visibility = ["//visibility:public"],
 )
@@ -111,7 +106,6 @@ cc_library(
     hdrs = [
         "Util/MultiReaderBuffer.h",
     ],
-    copts = mcu_avr_gcc_flag(),
     linkstatic = True,
     visibility = ["//visibility:public"],
     deps = ["@CException"],

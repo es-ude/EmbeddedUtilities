@@ -12,7 +12,7 @@ http_archive(
     urls = ["http://artifactory.es.uni-due.de:8081/artifactory/libs-release-local/FKS/embedded-systems-build-scripts/0.4.7/embedded-systems-build-scripts.tar.gz"]
 )
 
-load("@EmbeddedSystemsBuildScripts//:avr.bzl", "avr_toolchain")
+load("@EmbeddedSystemsBuildScripts//AvrToolchain:avr.bzl", "avr_toolchain")
 
 avr_toolchain()
 
