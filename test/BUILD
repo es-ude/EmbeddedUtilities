@@ -1,4 +1,4 @@
-load("@EmbeddedSystemsBuildScripts//:unity.bzl", "unity_test")
+load("@EmbeddedSystemsBuildScripts//Unity:unity.bzl", "unity_test")
 
 unity_test(
     file_name = "Mutex_Test.c",

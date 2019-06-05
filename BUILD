@@ -130,56 +130,10 @@ exports_files(
     visibility = ["//visibility:public"],
 )
 
-LibsList = [
-    ":MultiReaderBuffer",
-    ":Callback",
-    ":Debug",
-    ":PeriodicScheduler",
-    ":Util",
-    ":BitManipulation",
-    ":Mutex",
-]
-
-pkg_tar(
-    name = "pkgSources",
-    srcs = glob(["src/*.c", "src/*.h"]),
-    strip_prefix = ".",
-    extension = "tar.gz",
-    mode = "0644"
-)
-
-pkg_tar(
-    name = "pkgHeaders",
-    srcs = [":UtilHeaders"],
-    extension = "tar.gz",
-    mode = "0644",
-    strip_prefix = ".",
-)
-
-[pkg_tar(
-    name = "pkg%s" % lib[1:],
-    srcs = [lib],
-    extension = "tar.gz",
-    mode = "0644",
-) for lib in LibsList]
-
-pkg_tar(
-    name = "pkgBuild",
-    srcs = ["BUILD.tpl"],
-    extension = "tar.gz",
-    mode = "0644",
-    remap_paths = {
-        "BUILD.tpl": "BUILD",
-    },
-)
-
 pkg_tar(
     name = "pkg",
+    srcs = glob(["Util/*.h", "src/*.c", "src/*.h"]) + ["BUILD"],
     extension = "tar.gz",
     mode = "0644",
-    deps = [
-        "pkgSources", 
-        "pkgHeaders",
-        "pkgBuild",
-    ] + ["pkg%s" % lib[1:] for lib in LibsList],
+    strip_prefix = ".",
 )

@@ -9,10 +9,11 @@ load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 http_archive(
     name = "EmbeddedSystemsBuildScripts",
     type = "tar.gz",
-    urls = ["http://artifactory.es.uni-due.de:8081/artifactory/libs-release-local/FKS/embedded-systems-build-scripts/0.4.1/embedded-systems-build-scripts.tar.gz"]
+    strip_prefix = "EmbeddedSystemsBuildScripts-0.5",
+    urls = ["https://github.com/es-uni-due/EmbeddedSystemsBuildScripts/archive/0.5.tar.gz"]
 )
 
-load("@EmbeddedSystemsBuildScripts//:avr.bzl", "avr_toolchain")
+load("@EmbeddedSystemsBuildScripts//AvrToolchain:avr.bzl", "avr_toolchain")
 
 avr_toolchain()
 
