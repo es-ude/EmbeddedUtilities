@@ -1,5 +1,4 @@
 load("@bazel_tools//tools/build_defs/pkg:pkg.bzl", "pkg_deb", "pkg_tar")
-load("@AvrToolchain//:helpers.bzl", "mcu_avr_gcc_flag")
 
 filegroup(
     name = "UtilHeaders",
@@ -63,7 +62,6 @@ cc_library(
         "src/PeriodicScheduler.c",
         "src/PeriodicSchedulerIntern.h",
     ],
-    copts = mcu_avr_gcc_flag(),
     hdrs = [
         "Util/PeriodicScheduler.h",
     ],
