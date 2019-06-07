@@ -10,7 +10,7 @@ http_archive(
     name = "EmbeddedSystemsBuildScripts",
     type = "tar.gz",
     strip_prefix = "EmbeddedSystemsBuildScripts-0.5",
-    urls = ["https://github.com/es-uni-due/EmbeddedSystemsBuildScripts/archive/0.5.tar.gz"]
+    urls = ["https://github.com/es-ude/EmbeddedSystemsBuildScripts/archive/0.5.tar.gz"]
 )
 
 load("@EmbeddedSystemsBuildScripts//AvrToolchain:avr.bzl", "avr_toolchain")
