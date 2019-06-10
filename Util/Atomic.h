@@ -4,6 +4,8 @@
 #include "Util/Callback.h"
 
 /**
+ * \file Util/Atomic.h
+ * 
  * This function has to be implemented
  * by the user of the library.
  * The function provided as parameter
@@ -22,15 +24,16 @@
  * #include <util/atomic.h>
  *
  * void
- * executeAtomically(CommunicationModule_Callback callback)
+ * executeAtomically(GenericCallback callback)
  * {
  *   ATOMIC_BLOCK(ATOMIC_STATERESTORE)
  *   {
  *     callback.function(callback.argument);
  *   }
  * }
- *
+ * ```
  */
+
 void
 executeAtomically(GenericCallback callback);
 

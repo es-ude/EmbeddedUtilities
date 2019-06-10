@@ -19,4 +19,9 @@ The listed function declarations
 have to be implemented by the
 user.
 
-.. doxygenfile:: Debug.h
+Util/Debug.h
+------------
+
+**#include "Util/Debug.h"**
+
+.. doxygenfile:: Util/Debug.h

@@ -7,6 +7,7 @@
 #include "CException.h"
 
 /**
+ * \file Util/PeriodicScheduler.h
  * Overall idea here is simple.
  * Have a timer interrupt set up, like so
  *

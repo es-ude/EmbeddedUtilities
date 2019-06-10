@@ -10,4 +10,7 @@ embedded systems.
   :maxdepth: 2
   :caption: For Users
 
+  PeriodicScheduler
   Debug
+  MultiReaderBuffer
+  Mutex

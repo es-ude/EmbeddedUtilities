@@ -4,6 +4,8 @@
 #include <stdint.h>
 
 /**
+ * \file Debug.h
+ * 
  * Implement print functions and compile with -DDEBUG=1
  * to have debug messages printed.
  */
