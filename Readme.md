@@ -1,3 +1,4 @@
+[![Documentation Status](https://readthedocs.org/projects/embeddedutil/badge/?version=latest)](https://embeddedutil.readthedocs.io/en/latest/?badge=latest)
 ## EmbeddedUtil
 
 This repository holds a collection of small utilities. These currently include
