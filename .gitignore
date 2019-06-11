@@ -3,3 +3,5 @@
 bazel-*
 compile_commands.json
 user.bazelrc
+docs/_build/
+docs/xml/

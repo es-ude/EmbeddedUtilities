@@ -34,3 +34,18 @@ A single producer, multiple consumer, fifo buffer.
 
 ### Callback
 Contains a general definition for callbacks, used at several places.
+
+## Documentation
+The documentation is available [here](https://embeddedutil.readthedocs.io).
+But you can also build it locally from sources.
+Install the following dependencies
+  * doxygen
+  * python 3.7
+  * sphinx
+  * breathe (a sphinx plugin)
+then issue
+```
+$ sphinx_build -T -b html docs docs/_build
+```
+from the project root.
+You can then find the produced html output in `docs/_build`
