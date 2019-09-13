@@ -1,6 +1,6 @@
 #include <unity.h>
 #include <CException.h>
-#include "Util/MultiReaderBuffer.h"
+#include "EmbeddedUtilities/MultiReaderBuffer.h"
 
 #define BUFFER_WORD_SIZE (2)
 #define MAX_ELEMENTS (50)

@@ -1,5 +1,5 @@
-#include "Util/Debug.h"
-#include "Util/PeriodicScheduler.h"
+#include "EmbeddedUtilities/Debug.h"
+#include "EmbeddedUtilities/PeriodicScheduler.h"
 #include <CException.h>
 #include <stdio.h>
 #include <unity.h>

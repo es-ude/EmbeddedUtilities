@@ -1,5 +1,5 @@
 #include "unity.h"
-#include "Util/BitManipulation.h"
+#include "EmbeddedUtilities/BitManipulation.h"
 // #include "CommunicationModule/Mac802154.h"
 
 #define ADDRESSING_MODE_SHORT_ADDRESS 0b10 // source: "CommunicationModule/Mac802154.h"

@@ -1,7 +1,7 @@
 #ifndef COMMUNICATIONMODULE_ATOMIC_H
 #define COMMUNICATIONMODULE_ATOMIC_H
 
-#include "Util/Callback.h"
+#include "EmbeddedUtilities/Callback.h"
 
 /**
  * \file Util/Atomic.h
