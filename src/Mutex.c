@@ -1,5 +1,5 @@
-#include "Util/Mutex.h"
-#include "Util/Atomic.h"
+#include "EmbeddedUtilities/Mutex.h"
+#include "EmbeddedUtilities/Atomic.h"
 #include "CException.h"
 #include <stdbool.h>
 #include <stddef.h>

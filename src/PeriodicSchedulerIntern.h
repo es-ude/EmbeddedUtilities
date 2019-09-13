@@ -1,7 +1,7 @@
 #ifndef PERIODICSCHEDULER_PERIODICSCHEDULERINTERN_H
 #define PERIODICSCHEDULER_PERIODICSCHEDULERINTERN_H
 
-#include "Util/PeriodicScheduler.h"
+#include "EmbeddedUtilities/PeriodicScheduler.h"
 
 static void
 executeTaskIfDue(InternalTask *tasks, uint8_t index);

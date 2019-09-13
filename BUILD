@@ -2,11 +2,11 @@ load("@bazel_tools//tools/build_defs/pkg:pkg.bzl", "pkg_deb", "pkg_tar")
 
 filegroup(
     name = "UtilHeaders",
-    srcs = glob(["Util/*.h"]),
+    srcs = glob(["EmbeddedUtilities/*.h"]),
 )
 
 cc_library(
-    name = "Util",
+    name = "EmbeddedUtilities",
     srcs = glob([
         "src/**/*.c",
         "src/**/*.h",
@@ -26,7 +26,7 @@ cc_library(
 
 cc_library(
     name = "BitManipulation",
-    hdrs = ["Util/BitManipulation.h"],
+    hdrs = ["EmbeddedUtilities/BitManipulation.h"],
     visibility = ["//visibility:public"],
 )
 
@@ -36,9 +36,9 @@ cc_library(
         "src/Mutex.c",
     ],
     hdrs = [
-        "Util/Atomic.h",
-        "Util/Callback.h",
-        "Util/Mutex.h",
+        "EmbeddedUtilities/Atomic.h",
+        "EmbeddedUtilities/Callback.h",
+        "EmbeddedUtilities/Mutex.h",
     ],
     linkstatic = True,
     visibility = ["//visibility:public"],
@@ -48,9 +48,9 @@ cc_library(
 cc_library(
     name = "MutexHdrsOnly",
     hdrs = [
-        "Util/Atomic.h",
-        "Util/Callback.h",
-        "Util/Mutex.h",
+        "EmbeddedUtilities/Atomic.h",
+        "EmbeddedUtilities/Callback.h",
+        "EmbeddedUtilities/Mutex.h",
     ],
     linkstatic = True,
     visibility = ["//visibility:public"],
@@ -63,7 +63,7 @@ cc_library(
         "src/PeriodicSchedulerIntern.h",
     ],
     hdrs = [
-        "Util/PeriodicScheduler.h",
+        "EmbeddedUtilities/PeriodicScheduler.h",
     ],
     linkstatic = True,
     visibility = ["//visibility:public"],
@@ -76,7 +76,7 @@ cc_library(
 cc_library(
     name = "PeriodicSchedulerHdrsOnly",
     hdrs = [
-        "Util/PeriodicScheduler.h",
+        "EmbeddedUtilities/PeriodicScheduler.h",
     ],
     linkstatic = True,
     visibility = ["//visibility:public"],
@@ -85,7 +85,7 @@ cc_library(
 cc_library(
     name = "Debug",
     hdrs = [
-        "Util/Debug.h",
+        "EmbeddedUtilities/Debug.h",
     ],
     visibility = ["//visibility:public"],
 )
@@ -93,7 +93,7 @@ cc_library(
 cc_library(
     name = "Callback",
     hdrs = [
-        "Util/Callback.h",
+        "EmbeddedUtilities/Callback.h",
     ],
     visibility = ["//visibility:public"],
 )
@@ -104,7 +104,7 @@ cc_library(
         "src/MultiReaderBuffer.c",
     ],
     hdrs = [
-        "Util/MultiReaderBuffer.h",
+        "EmbeddedUtilities/MultiReaderBuffer.h",
     ],
     linkstatic = True,
     visibility = ["//visibility:public"],
@@ -124,13 +124,17 @@ other projects.
 """
 
 exports_files(
-    srcs = glob(["Util/**/*.h"]),
+    srcs = glob(["EmbeddedUtilities/**/*.h"]),
     visibility = ["//visibility:public"],
 )
 
 pkg_tar(
     name = "pkg",
-    srcs = glob(["Util/*.h", "src/*.c", "src/*.h"]) + ["BUILD"],
+    srcs = glob([
+        "EmbeddedUtilities/*.h",
+        "src/*.c",
+        "src/*.h",
+    ]) + ["BUILD"],
     extension = "tar.gz",
     mode = "0644",
     strip_prefix = ".",
