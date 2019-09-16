@@ -45,7 +45,7 @@ Install the following dependencies
   * breathe (a sphinx plugin)
 then issue
 ```
-$ sphinx_build -T -b html docs docs/_build
+$ sphinx-build -T -b html docs docs/_build
 ```
 from the project root.
 You can then find the produced html output in `docs/_build`
