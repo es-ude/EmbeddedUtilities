@@ -27,7 +27,7 @@ in the ``deps`` attribute of your ``cc_*`` rule.
 
 Then include the header where needed::
   
-  #include "Util/Debug.h"
+  #include "EmbeddedUtilities/Debug.h"
 
 The header file provides the ``debug``
 macro. Writing::
@@ -72,9 +72,9 @@ To disable the output specify ``-DDEBUG=0`` instead.
 Not setting the debug flag at all will result in a warning.
   
 
-Util/Debug.h
+EmbeddedUtilities/Debug.h
 ------------
 
-**#include "Util/Debug.h"**
+**#include "EmbeddedUtilities/Debug.h"**
 
-.. doxygenfile:: Util/Debug.h
+.. doxygenfile:: EmbeddedUtilities/Debug.h

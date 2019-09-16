@@ -3,20 +3,20 @@ PeriodicScheduler
 -----------------
 
 
-Util/PeriodicScheduler.h
+EmbeddedUtilities/PeriodicScheduler.h
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 |includePeriodicScheduler|_ 
 
 
-.. |includePeriodicScheduler| replace:: **#include "Util/PeriodicScheduler.h"**
-.. _includePeriodicScheduler: https://github.com/es-ude/EmbeddedUtil/blob/master/Util/PeriodicScheduler.h
+.. |includePeriodicScheduler| replace:: **#include "EmbeddedUtilities/PeriodicScheduler.h"**
+.. _includePeriodicScheduler: https://github.com/es-ude/EmbeddedUtil/blob/master/EmbeddedUtilities/PeriodicScheduler.h
 
 
-.. doxygenfile:: Util/PeriodicScheduler.h
+.. doxygenfile:: EmbeddedUtilities/PeriodicScheduler.h
 
 File
 ~~~~
 
-.. literalinclude:: ../Util/PeriodicScheduler.h
+.. literalinclude:: ../EmbeddedUtilities/PeriodicScheduler.h
    :language: c
