@@ -2,14 +2,14 @@
 MultiReaderBuffer
 -----------------
 
-Util/MultiReaderBuffer.h
+EmbeddedUtilities/MultiReaderBuffer.h
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 |includeMultiReaderBuffer|_ 
 
 
-.. |includeMultiReaderBuffer| replace:: **#include "Util/MultiReaderBuffer.h"**
-.. _includeMultiReaderBuffer: https://github.com/es-ude/EmbeddedUtil/blob/master/Util/MultiReaderBuffer.h
+.. |includeMultiReaderBuffer| replace:: **#include "EmbeddedUtilities/MultiReaderBuffer.h"**
+.. _includeMultiReaderBuffer: https://github.com/es-ude/EmbeddedUtil/blob/master/EmbeddedUtilities/MultiReaderBuffer.h
 
 
-.. doxygenfile:: Util/MultiReaderBuffer.h
+.. doxygenfile:: EmbeddedUtilities/MultiReaderBuffer.h

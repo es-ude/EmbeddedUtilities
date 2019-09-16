@@ -3,38 +3,38 @@ Mutex
 ------
 
 
-Util/Mutex.h
+EmbeddedUtilities/Mutex.h
 ~~~~~~~~~~~~
 
 |includeMutex|_ 
 
 
-.. |includeMutex| replace:: **#include "Util/Mutex.h"**
-.. _includeMutex: https://github.com/es-ude/EmbeddedUtil/blob/master/Util/Mutex.h
+.. |includeMutex| replace:: **#include "EmbeddedUtilities/Mutex.h"**
+.. _includeMutex: https://github.com/es-ude/EmbeddedUtil/blob/master/EmbeddedUtilities/Mutex.h
 
 
-.. doxygenfile:: Util/Mutex.h
+.. doxygenfile:: EmbeddedUtilities/Mutex.h
 
 File
 ++++
 
-.. literalinclude:: ../Util/Mutex.h
+.. literalinclude:: ../EmbeddedUtilities/Mutex.h
    :language: c
 
-Util/Atomic.h
+EmbeddedUtilities/Atomic.h
 ~~~~~~~~~~~~~
 
 |includeAtomic|_ 
 
 
-.. |includeAtomic| replace:: **#include "Util/Atomic.h"**
-.. _includeAtomic: https://github.com/es-ude/EmbeddedUtil/blob/master/Util/Atomic.h
+.. |includeAtomic| replace:: **#include "EmbeddedUtilities/Atomic.h"**
+.. _includeAtomic: https://github.com/es-ude/EmbeddedUtil/blob/master/EmbeddedUtilities/Atomic.h
 
 
-.. doxygenfile:: Util/Atomic.h
+.. doxygenfile:: EmbeddedUtilities/Atomic.h
 
 File
 ++++
 
-.. literalinclude:: ../Util/Atomic.h
+.. literalinclude:: ../EmbeddedUtilities/Atomic.h
    :language: c
