@@ -1,6 +1,9 @@
 #ifndef COMMUNICATIONMODULE_BITMANIPULATION_H
 #define COMMUNICATIONMODULE_BITMANIPULATION_H
 
+#ifdef TEST
+#include "EmbeddedUtilities/BitManipulation_Test.h"
+#else
 #include <stdint.h>
 #include <stdbool.h>
 
@@ -147,7 +150,15 @@ BitManipulation_get16BitFromBigEndianByteArray(volatile const uint8_t *array) {
 
 static inline void BitManipulation_clearBit(volatile uint8_t *byte_ptr, uint8_t offset) {
   *(byte_ptr) &= ~(1 << offset);
-}
+}byte_index = (uint8_t) (offset / 8);
+  uint8_t local_offset = (uint8_t) (offset % 8);
+  uint8_t lower_bitmask = bitmask << local_offset;
+  uint8_t upper_bitmask = bitmask >> (8 - local_offset);
+  uint8_t value = (field[byte_index] & lower_bitmask) >> local_offset;
+  if (upper_bitmask != 0) {
+    value |= (field[byte_index + 1] & upper_bitmask) << (8 - local_offset);
+  }
+  return value;
 
 static inline void BitManipulation_setBit(volatile uint8_t *byte_ptr, uint8_t offset) {
   *(byte_ptr) |= (1 << offset);
@@ -190,4 +201,6 @@ BitManipulation_getLengthOfContinuousSetBitsFromByte(uint8_t byte)
   }
   return length;
 }
+
+#endif
 #endif //COMMUNICATIONMODULE_BITMANIPULATION_H
