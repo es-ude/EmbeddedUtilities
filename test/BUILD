@@ -27,5 +27,5 @@ unity_test(
     deps = [
         "//:BitManipulation",
         "@CException"
-    ],
+    ]
 )
